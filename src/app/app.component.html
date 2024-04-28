@@ -1,0 +1,26 @@
+<div>
+  <p-listbox [options]="store.todos"
+           [filter]="false"
+           [virtualScrollItemSize]="43"
+           [multiple]="false"
+           [checkbox]="true"
+           [showToggleAll]="false"
+           [metaKeySelection]="false"
+           [showToggleAll]="true"
+           [(ngModel)]="text"
+           [style]="{'width':'15rem'}"
+           [listStyle]="{'max-height': '220px'}">
+    <ng-template let-todo pTemplate="item">
+        {{ todo.id }} - {{ todo.text }}
+    </ng-template>
+  </p-listbox>
+
+  <input type="text" pInputText [(ngModel)]="text" />
+  <div>
+    <p-button icon="pi pi-plus" [rounded]="true" [outlined]="true" (click)="addTodo()"></p-button>
+    <p-button icon="pi pi-check" [rounded]="true" severity="secondary" [outlined]="true" (click)="getCompleted()"></p-button>
+    <p-button icon="pi pi-times" [rounded]="true" severity="success" [outlined]="true" (click)="getInCompleted()"></p-button>
+    <p-button icon="pi pi-send" [rounded]="true" severity="info" [outlined]="true" (click)="setCompleted()"></p-button>
+    <p-button icon="pi pi-trash" [rounded]="true" severity="danger" [outlined]="true" (click)="removeTodo()"></p-button>
+  </div>
+</div>
